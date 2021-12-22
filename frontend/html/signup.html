@@ -52,19 +52,19 @@
         <form class="row g-3">
             <div class="col-12">
                 <label for="fullname2" class="form-label">Full name</label>
-                <input type="text" class="form-control" id="fullname2">
+                <input type="text" class="form-control" id="fullname2" pattern="[a-zA-Z'-'\s]*" required>
             </div>
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
+                <input type="email" class="form-control" id="inputEmail4" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             </div>
             <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword4">
+                <input type="password" class="form-control" id="inputPassword4" required>
             </div>
             <div class="col-12">
                 <label for="mobilenumber" class="form-label">Mobile Number</label>
-                <input type="text" class="form-control" id="mobilenumber">
+                <input type="text" class="form-control" id="mobilenumber" pattern="[7-9]{1}[0-9]{9}" required>
             </div>
             <div class="col-12">
                 <label for="pannumber" class="form-label">Pan Card Number</label>
