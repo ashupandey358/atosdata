@@ -8,17 +8,15 @@ public class Util {
 	public static Connection getConnection() throws SQLException
 	{
 		try {
-			Class.forName("oracle.mysql.cj.jdbc.Driver");
-		}catch(ClassNotFoundException e)
-		{
-			System.out.println("Wrong Class");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("Wrong class ");
 			e.printStackTrace();
 		}
 		return DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/mydb"
-				 ,"root"
-				,"@shu1234");
-				
+				"jdbc:mysql://localhost:3306/qanda",
+				 "root",
+				"@Shu1234");
 	}
 
 }

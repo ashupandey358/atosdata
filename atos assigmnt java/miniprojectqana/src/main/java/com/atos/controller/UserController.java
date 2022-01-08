@@ -1,6 +1,8 @@
 package com.atos.controller;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -17,48 +19,63 @@ import com.atos.model.User;
 
 @Path("/users")
 public class UserController {
-	
-UserDao dao = new UserDaoImpl();
-private static User currentUser;
-public static User getCurrentUser() {
-	return currentUser;
-}
-public static void setCurrentUser(User currentUser) {
-	UserController.currentUser = currentUser;
-}
 
-private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+	UserDao dao = new UserDaoImpl();
+	private static User currentUser;
 
-@GET
-@Path("/{email}/{password}")
-@Produces(MediaType.APPLICATION_JSON)
-public Response loginDetails(@PathParam("email") String email,@PathParam("password") String password)
+	public static User getCurrentUser() {
+		return currentUser;
+	}
+
+	public static void setCurrentUser(User currentUser) {
+		UserController.currentUser = currentUser;
+	}
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+
+	@GET
+	@Path("/{email}/{password}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response loginDetails(@PathParam("email") String email, @PathParam("password") String password) {
+		LOGGER.info("start");
+
+		try {
+			User user = new User();
+			user = dao.getUser(email);
+			if (user == null) {
+				LOGGER.info("Invaild password or email");
+				return Response.status(401).build();
+			} else if (user.getPassword().equals(password)) {
+				LOGGER.info("Login succesfully");
+				LOGGER.debug("{}", user);
+				UserController.setCurrentUser(user);
+				return Response.ok().entity(user).build();
+			} else {
+				LOGGER.info("invalid password or email");
+				return Response.status(401).build();
+			}
+		} catch (AppException e) {
+			return Response.status(500).build();
+		}
+	}
+@POST
+@Consumes(MediaType.APPLICATION_JSON)
+
+public Response createUser(User user)
 {
-	LOGGER.info("start");
+	LOGGER.info("Start");
+	LOGGER.debug("{}",user);
 	
 	try {
-		User user = new User();
-		user = dao.getUser(email);
-		if(user==null)
-		{
-			LOGGER.info("Invaild password or email");
-			return Response.status(401).build();
-		}
-		else if(user.getPassword().equals(password))
-		{
-			LOGGER.info("Login succesfully");
-			LOGGER.debug("{}",user);
-			UserController.setCurrentUser(user);
-			return Response.ok().entity(user).build();
-		}
-		else
-		{
-			LOGGER.info("invalid password or email");
-			return Response.status(401).build();
-		}
+		dao.create(user);
+		LOGGER.info("end");
+		return Response.ok().build();
 	} catch (AppException e) {
 		return Response.status(500).build();
 	}
+	
+	
 }
+
 
 }

@@ -27,14 +27,11 @@
                         <a class="nav-link active" aria-current="page" href="question.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Q&A.html">Q & A</a>
+                        <a class="nav-link" href="question.html">Logout</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="signup.html">Signup</a>
-                    </li>
+                    </li> -->
 
                 </ul>
                 <form class="d-flex">
@@ -44,6 +41,11 @@
             </div>
         </div>
     </nav>
+    <div class="container-fluid mt-2">
+        <div id="success" class="alert alert-success"  ></div>
+       
+    <div id="error" class="alert alert-danger"></div>
+    </div>
     <div class="container-fluid mt-2 ">
         <h1> Welcome</h1>
     </div>
@@ -59,24 +61,44 @@
 
     </div>
     <div class="container-fluid mt-4">
-        <div class="form col-sm-8">
-            <textarea class="form-control" placeholder="Ask any question" id="floatingTextarea"></textarea>
+        <div class="form col-sm-8" aria-required="true">
+            <textarea class="form-control" placeholder="Ask any question" id="question" required></textarea>
         </div>
     </div>
 
     <div class="container-fluid mt-4">
-        <div class="form">
-            <textarea class="form-control" placeholder="Provide question detail here." id="floatingTextarea2" style="height: 100px"></textarea>
+        <div class="form" aria-required="true">
+            <textarea class="form-control" placeholder="Provide question detail here." id="detailedQuestion" style="height: 100px" required></textarea>
           </div>
     </div>
     <div class="container-fluid mt-4 mx-1">
         <div class="text-right">
-        <button type="submit" class="btn btn-primary">submit</button>
+        <button type="button" class="btn btn-primary" id="submit">submit</button>
         </div>
+    </div><br>
+ 
+<div class="container-fluid">
+    <button type="button" class="btn btn-secondary" id="allQuestions">Questions</button>
+    <button type="button" class="btn btn-secondary" id="myQuestions">myQuestions</button>
+    <table class="table table-info table-striped rounded mt-2 table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">question</th>
+            <th scope="col">date and time</th>
+            <th scope="col">no of Answer</th>
+          </tr>
+        </thead>
+        <tbody id="questionList"> 
+          
+          
+        </tbody>
+      </table>
     </div>
 
     
-    
+    <script src="/javascript/QandA.js"></script>
+    <script src="/javascript/getallquestion.js"></script>
+    <script src="/javascript/getmyquestion.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

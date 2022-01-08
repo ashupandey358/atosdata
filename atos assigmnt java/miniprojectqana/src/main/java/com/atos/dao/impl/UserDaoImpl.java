@@ -21,14 +21,13 @@ public class UserDaoImpl implements UserDao {
 		LOGGER.debug("{}",user);
 		try(Connection connection = Util.getConnection())
 		{
-			String query = "INSERT INTO ATOSDB.users (ID, NAME, MOBILENUMBER, EMAIL, PASSWORD, PANNUMBER) VALUES (?, ?, ?, ?, ?, ?)";
+			String query = "INSERT INTO user (name, mobile, email, password, pannumber) VALUES (?, ?, ?, ?, ?);";
 			PreparedStatement statement = connection.prepareStatement(query);
-			statement.setInt(1, user.getId());
-			statement.setString(2, user.getName());
-			statement.setString(3, user.getMobile());
-			statement.setString(4, user.getEmail());
-			statement.setString(5, user.getPassword());
-			statement.setString(6, user.getPannumber());
+			statement.setString(1, user.getName());
+			statement.setString(2, user.getMobile());
+			statement.setString(3, user.getEmail());
+			statement.setString(4, user.getPassword());
+			statement.setString(5, user.getPannumber());
 			statement.executeUpdate();
 			LOGGER.debug("Queary excute succesfully");
 			LOGGER.info("end");
@@ -46,18 +45,18 @@ public class UserDaoImpl implements UserDao {
 		LOGGER.debug("{}",email);
 		User user = null;
 		try (Connection connection = Util.getConnection()){
-			String query = "select * from users where email = ?";
+			String query = "select * from user where email = ?";
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1,email);
 			ResultSet result = statement.executeQuery();
 			if(result.next())
 			{
-				int id = result.getInt("ID");
-				String name = result.getString("NAME");
-				String mobileNumber = result.getString("MOBILENUMBER");
-				String email1 = result.getString("EMAIL");
-				String password = result.getString("PASSWORD");
-				String panNumber = result.getString("PANNUMMBER");
+				int id = result.getInt("id");
+				String name = result.getString("name");
+				String mobileNumber = result.getString("mobile");
+				String email1 = result.getString("email");
+				String password = result.getString("password");
+				String panNumber = result.getString("pannumber");
 				user = new User(id,name,mobileNumber,email1,password,panNumber);
 				LOGGER.debug("query excute succesfully");
 				LOGGER.info("end");
