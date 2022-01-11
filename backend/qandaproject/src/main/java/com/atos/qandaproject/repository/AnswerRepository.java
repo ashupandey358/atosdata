@@ -7,13 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.atos.qandaproject.model.QuestionModel;
+import com.atos.qandaproject.model.AnswerModel;
+
 
 @Repository
-public interface QuestionRepository extends JpaRepository<QuestionModel, Integer>{
-	
-	@Query("Select q from QuestionModel q Where q.user.id = :userId")
-	List<QuestionModel> getUserId (@Param("userId") int userId);
- 
-	
+public interface AnswerRepository extends JpaRepository<AnswerModel, Integer> {
+	@Query("Select a from AnswerModel a Where a.questionid.id = :questionId")
+	List<AnswerModel> getAnswerId (@Param("questionId") int questionId);
+
 }

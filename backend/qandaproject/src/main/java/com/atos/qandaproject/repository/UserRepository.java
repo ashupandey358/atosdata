@@ -8,7 +8,7 @@ import com.atos.qandaproject.model.UserModel;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Integer> {
 	
-	UserModel findByEmail(String email,String password);
+	UserModel findByEmail(String email);
 	
 
 }

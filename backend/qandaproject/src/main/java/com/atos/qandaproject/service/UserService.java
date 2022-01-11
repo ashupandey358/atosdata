@@ -26,8 +26,8 @@ public class UserService {
 
 	}
 	
-	public UserModel getUserByEmail(String email,String password) {
-		return userRepository.findByEmail(email, password);		
+	public UserModel getUserByEmail(String email) {
+		return userRepository.findByEmail(email);		
 				
 	}
 

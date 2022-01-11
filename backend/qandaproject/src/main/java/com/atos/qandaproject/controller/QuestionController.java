@@ -37,10 +37,10 @@ public List<QuestionModel> getQuestions(){
 	
 }
 
-@GetMapping("/{id}")
-public QuestionModel getQuestion(@PathVariable int id ) {
-	return questionService.getQuestionById(id);
-	
+@GetMapping("/user/{id}")
+public List<QuestionModel> get(@PathVariable int id)
+{
+	return questionService.get(id);
 }
 
 	

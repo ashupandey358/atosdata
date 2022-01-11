@@ -1,18 +1,17 @@
 let myQuestions = document.getElementById("myQuestions")
-let tabled = document.getElementById("transactionTable");
 userDetails = JSON.parse(sessionStorage.getItem("currentUserId"));
 
 myQuestions.addEventListener("click", async function getAllTheQuestion() {
     try {
-        
-        
-        let response = await fetch("http://localhost:8081/questions/"+userDetails.id);
+
+
+        let response = await fetch("http://localhost:8081/questions/user/" + userDetails.id);
         let data = await response.json();
         console.log(data);
-        let element = "";
+        let elements = "";
         for (var question of data) {
 
-            element += `
+            elements += `
             <tr>
             <td>${question.questions}</td>
             <td>${question.datetime}</td>
@@ -20,8 +19,8 @@ myQuestions.addEventListener("click", async function getAllTheQuestion() {
           </tr>
             `
         }
-        document.getElementById("questionList").innerHTML = element;
-        console.log(element);
+        document.getElementById("questionList").innerHTML = elements;
+        console.log(elements);
     }
     catch (err) {
 

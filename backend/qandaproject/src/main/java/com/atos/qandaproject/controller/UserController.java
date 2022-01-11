@@ -26,7 +26,7 @@ public class UserController {
 		LOGGER.debug(" {}", userModel);
 		String emailRecived = userModel.getEmail();
 		String passwordRecived = userModel.getPassword();
-		UserModel returnUserModel = userService.getUserByEmail(emailRecived,passwordRecived);
+		UserModel returnUserModel = userService.getUserByEmail(emailRecived);
 		LOGGER.debug("{}", returnUserModel);
 		if (returnUserModel == null) {
 			throw new InvalidCredentialsException("Enter Valid Credntials");

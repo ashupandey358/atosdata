@@ -1,7 +1,7 @@
 let question = document.getElementById("question");
 let detailedQuestion = document.getElementById("detailedQuestion");
 let submit = document.getElementById("submit");
- 
+userDetails = JSON.parse(sessionStorage.getItem("currentUserId"));
 success.style.display = "none";
 error.style.display = "none";
 submit.addEventListener("click",async function postQuestion(){
@@ -15,6 +15,13 @@ submit.addEventListener("click",async function postQuestion(){
     {
         questions:question.value,
         detailedquestion:detailedQuestion.value,
+        user:{id:userDetails.id,
+            name:userDetails.name,
+            mobile:userDetails.mobile,
+            email:userDetails.email,
+            password:userDetails.password,
+            pannumber:userDetails.pannumber
+        },
         datetime :dateTime
     }
     var options = {
