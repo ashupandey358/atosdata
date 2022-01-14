@@ -12,9 +12,10 @@ allQuestions.addEventListener("click", async function getAllTheQuestion() {
 
             element += `
             <tr>
-            <td>${question.questions}</td>
-            <td>${question.datetime}</td>
-            <td>1</td>
+            <td><a href="/html/answer.html?id=${question.id}"> <i class="bi bi-question-circle-fill"></i> ${question.questions}</td>
+            <td>${question.detailedquestion}</td>
+            <td> <i class="bi bi-alarm-fill"></i> ${question.datetime}</td>
+        
           </tr>
             `
         }

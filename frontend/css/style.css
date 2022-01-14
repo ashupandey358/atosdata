@@ -2,3 +2,73 @@
     color: red;
     font-size: 0.75rem;
 }
+.myDataTable {
+    background: 444;
+    width: 100%;
+}
+
+.myDataTable thead tr {
+    background-image: url('../img/tableHeader.jpg');
+}
+
+.myDataTable thead tr th {
+    height: 28px;
+    font-size: 14px;
+    font-family: tahoma, helvetica, arial, sans-serif;
+    padding-left: 5px;
+}
+
+.myDataTable thead tr th img {
+    padding-right: 5px;
+    padding-top: 1px;
+}
+
+.myDataTable thead tr td {
+    height: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: tahoma, helvetica, arial, sans-serif;
+    padding-left: 5px;
+}
+
+.myDataTable tbody {
+    background: #f2f5f9;
+}
+
+.myDataTable tbody tr:nth-child(even) td,tbody tr.even td {
+    background: #e2ebf4;
+    font-size: 12px;
+    padding-left: 5px;
+    height: 14px;
+}
+
+.myDataTable tbody tr:nth-child(odd) td,tbody tr.odd td {
+    background: #f7faff;
+    font-size: 12px;
+    padding-left: 5px;
+    height: 14px;
+}
+
+.myDataTable tbody tr:hover td {
+    background-color: #e7e7e7;
+}
+
+.myDataTable tbody tr td {
+    height: 14px;
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.myDataTable tbody tr td a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    display: block;
+}
+
+.myDataTable thead tr th a {
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline;
+}

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/css/style.css">
     <title>Q & A</title>
 </head>
 
@@ -26,12 +27,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="question.html">Home</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="question.html">Logout</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="signup.html">Signup</a>
-                    </li> -->
+                    
 
                 </ul>
                 <form class="d-flex">
@@ -80,12 +80,12 @@
 <div class="container-fluid">
     <button type="button" class="btn btn-dark" id="allQuestions">Questions</button>
     <button type="button" class="btn btn-dark" id="myQuestions">MyQuestions</button>
-    <table class="table table-secondary table-striped rounded mt-2 table-bordered">
+    <table class="table table-secondary table-striped rounded mt-2 table-bordered myDataTable">
         <thead>
           <tr>
-            <th scope="col">question</th>
+            <th scope="col" >question</th>
+            <th scope="col" >detailedquestion</th>
             <th scope="col">date and time</th>
-            <th scope="col">no of Answer</th>
           </tr>
         </thead>
         <tbody id="questionList"> 
@@ -94,7 +94,7 @@
         </tbody>
       </table>
     </div>
-
+    <!-- <button type="button" class="btn btn-success" id="answer">Answer</button> -->
     
     <script src="/javascript/QandA.js"></script>
     <script src="/javascript/getallquestion.js"></script>

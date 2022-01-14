@@ -27,6 +27,12 @@ public class QuestionService {
 
 	}
 	
+	public QuestionModel getParticularQuestion(int id) {
+			Optional<QuestionModel> result= questionRepository.findById(id);
+			return result.get();
+	}
+	
+	
 	public List<QuestionModel> get(int userId)
 	{
 		return questionRepository.getUserId(userId);

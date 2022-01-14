@@ -21,6 +21,9 @@ public class AnswerModel {
 	@Column(name = "answer")
 	private String answer;
 	
+	@Column(name = "name")
+	private String name;
+	
 	@ManyToOne
 	@JoinColumn(name = "questionid")
 	private QuestionModel questionid;
@@ -29,10 +32,11 @@ public class AnswerModel {
 		super();
 	}
 
-	public AnswerModel(int id, String answer, QuestionModel questionid) {
+	public AnswerModel(int id, String answer, String name, QuestionModel questionid) {
 		super();
 		this.id = id;
 		this.answer = answer;
+		this.name = name;
 		this.questionid = questionid;
 	}
 
@@ -52,6 +56,14 @@ public class AnswerModel {
 		this.answer = answer;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public QuestionModel getQuestionid() {
 		return questionid;
 	}
@@ -60,11 +72,6 @@ public class AnswerModel {
 		this.questionid = questionid;
 	}
 
-	@Override
-	public String toString() {
-		return "AnswerModel [id=" + id + ", answer=" + answer + ", questionid=" + questionid + "]";
-	}
-	
 	
 	
                          
